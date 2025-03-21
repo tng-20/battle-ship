@@ -148,8 +148,14 @@ def game(newGame: bool, saveName, frame, oldFrame = ""):
         tG = targetGrid.createButtonGrid(gridFrames, playerTurn)
         tG.grid(row = 0, column = 0, padx = 10, pady = 10)
 
-        fG = playerGrid.createLabelGrid(gridFrames)
-        fG.grid(row = 0, column = 1, padx = 10, pady = 10)
+        #fG = playerGrid.createLabelGrid(gridFrames)
+        #fG.grid(row = 0, column = 1, padx = 10, pady = 10)
+
+        util.grid(tG, 0, 0)
+
+        #util.grid(fG, 0, 1)
+
+        util.pack(gridFrames)
 
         print(player.ships)
 
@@ -185,7 +191,6 @@ def game(newGame: bool, saveName, frame, oldFrame = ""):
             cy = randint(0, 9)
             if (cx, cy) not in computer.attacks:
                 posObtain = True
-        sleep(10)
         computer.attack(cx, cy, player)
         #save()
         if player.allSunk(computer):
